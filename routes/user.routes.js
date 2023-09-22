@@ -36,7 +36,7 @@ router.post(
       .not()
       .isEmpty()
       .withMessage("Пароль не может быть пустым")
-      .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/, "i")
+      // .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/, "i")
       .withMessage(
         "Password must include one lowercase character, one uppercase character, a number, and a special character."
       ),
@@ -71,7 +71,7 @@ router.post(
       .not()
       .isEmpty()
       .withMessage("Пароль не может быть пустым")
-      .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/, "i")
+      // .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/, "i")
       .withMessage("Пароль не соответствует требованиям"),
   ],
   userController.signup
@@ -79,6 +79,7 @@ router.post(
 router.patch("/company/update", verifyToken, userController.companyUpdate);
 
 router.get('/current', verifyToken, userController.current)
+router.get('/graph/:count', userController.graphPoints)
 
 
 

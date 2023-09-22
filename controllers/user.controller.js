@@ -121,6 +121,17 @@ class UserController extends ErrorController {
     })
     return;
   }
+  async graphPoints(req, res){
+    const count = req.params.count || 1;
+    let min = 10;
+    let max = 150;
+    let points = []
+    for (let i = 0; i < count; i++){
+      points.push(Math.floor(Math.random() * (max - min) + min));
+    }
+     res.status(200).json(points)
+    return;
+  }
 }
 
 module.exports = new UserController();
